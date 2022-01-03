@@ -1,7 +1,7 @@
 const SMTPServer = require('smtp-server').SMTPServer;
 
-const SERVER_PORT = 8080;
-const SERVER_HOST = false;
+const SERVER_PORT = 2525;
+const SERVER_HOST = "https://app-33500d3e-64bf-4838-9097-ebfe86cf58e3.cleverapps.io/";
 
 // Connect to this example server by running
 //   telnet localhost 2525
