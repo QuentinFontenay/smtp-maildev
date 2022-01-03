@@ -1,6 +1,6 @@
 const SMTPServer = require('smtp-server').SMTPServer;
 
-const SERVER_PORT = 2525;
+const SERVER_PORT = 8080;
 const SERVER_HOST = false;
 
 // Connect to this example server by running
