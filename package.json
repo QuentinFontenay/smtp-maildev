@@ -1,8 +1,9 @@
 {
   "version": "1.0.0",
   "name": "smtp-maildev",
-  "scripts": {
-    "main": "app.js"
+  "main" : "app.js",
+  "scripts" : {
+    "start" : "node app.js"
   },
   "dependencies": {
     "mailparser": "^3.4.0",
