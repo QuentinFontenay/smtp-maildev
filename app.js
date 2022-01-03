@@ -15,4 +15,4 @@ const server = new SMTPServer({
   disabledCommands: ['AUTH']
 });
 
-server.listen(25, "0.0.0.0")
+server.listen(8080)
