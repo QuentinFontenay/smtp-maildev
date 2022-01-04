@@ -1,7 +1,8 @@
 const MailDev = require('maildev')
 
 const maildev = new MailDev({
-  smtp: 1025 // incoming SMTP port - default is 1025
+  smtp: 1025,
+  web: 8080
 })
 
 maildev.listen(function(err) {
