@@ -1,4 +1,3 @@
-# Base
 FROM node:10-alpine as base
 MAINTAINER "Dan Farrelly <daniel.j.farrelly@gmail.com>"
 
@@ -27,7 +26,7 @@ COPY --chown=node:node --from=build /root/node_modules /home/node/node_modules
 EXPOSE 8080 4040
 
 ENTRYPOINT ["/home/node/bin/maildev"]
-CMD ["--web", "8080", "--smtp", "4040", "--incoming-user", "maildev", "--incoming-pass", "Ek49@Gr9oQnq", "--web-user", "maildev", "--web-pass", "8B4jMDPM^ssh"]
+CMD ["--web", "8080", "--smtp", "4040"]
 
 HEALTHCHECK --interval=10s --timeout=1s \
-  CMD wget -O - http://localhost:8080/healthz || exit 1
+  CMD wget -O - http://localhost:1080/healthz || exit 1
