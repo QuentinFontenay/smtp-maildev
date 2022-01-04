@@ -1,7 +1,7 @@
 const MailDev = require('maildev')
 
 const maildev = new MailDev({
-  smtp: 1025,
+  smtp: 27465,
   web: 8080
 })
 
