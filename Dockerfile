@@ -1,32 +1,19 @@
-FROM node:10-alpine as base
-MAINTAINER "Dan Farrelly <daniel.j.farrelly@gmail.com>"
+FROM node:17-alpine
 
 ENV NODE_ENV production
 
-# Build
-FROM base as build
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-WORKDIR /root
-COPY package*.json ./
+ADD package.json /usr/src/app/
 
-RUN npm install \
-  && npm prune \
-  && npm cache clean --force \
-  && rm package*.json
+RUN npm install -g maildev && \
+    npm prune && \
+    npm cache clean \
+    rm -rf /tmp/*
 
-# Prod
-FROM base as prod
-
-USER node
-WORKDIR /home/node
-
-COPY --chown=node:node . /home/node
-COPY --chown=node:node --from=build /root/node_modules /home/node/node_modules
+ADD . /usr/src/app/
 
 EXPOSE 8080 4040
 
-ENTRYPOINT ["/home/node/bin/maildev"]
-CMD ["--web", "8080", "--smtp", "4040"]
-
-HEALTHCHECK --interval=10s --timeout=1s \
-  CMD wget -O - http://localhost:1080/healthz || exit 1
+CMD ["maildev", "--web", "80", "--smtp", "4040"]
