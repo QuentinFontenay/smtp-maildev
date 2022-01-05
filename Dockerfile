@@ -17,4 +17,4 @@ ADD . /usr/src/app/
 EXPOSE 8080
 EXPOSE 10000-30000:4040
 
-#CMD ["maildev", "--web", "8080", "--smtp", "29957"]
+CMD ["maildev", "--web", "8080", "--smtp", "4040"]
