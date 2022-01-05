@@ -14,5 +14,4 @@ RUN npm install -g maildev && \
 
 ADD . /usr/src/app/
 
-EXPOSE 8080
-EXPOSE 10000-30000
+EXPOSE 8080 4040
